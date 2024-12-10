@@ -1,0 +1,45 @@
+body {
+    width: 95%;
+    margin: 10px auto;
+}
+#tabla {
+    width: 100%;
+    margin-top: 20px;
+}
+#tabla *{
+    text-align: center;
+}
+
+#tabla , #tabla th {
+    padding: 10px;
+}
+
+#tabla thead{
+    border-bottom: 2px solid #ccc;
+}
+
+.btn:hover {
+    background-color: #ccc;
+    color: black;
+    border: 1px solid black;
+}
+.detalle, .detalleUpdate{
+    width: 50%;
+}
+
+/* Detalle*/
+
+.oculto {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+.botonesDetalle{
+    margin-top: 10px;
+}
+
+i{
+    font-size: 2em;
+}
