@@ -10,11 +10,11 @@ body {
     text-align: center;
 }
 
-#tabla , #tabla th {
+#tabla tr td, #tabla th {
     padding: 10px;
 }
 
-#tabla thead{
+#tabla thead, #tabla tr{
     border-bottom: 2px solid #ccc;
 }
 
@@ -25,6 +25,7 @@ body {
 }
 .detalle, .detalleUpdate{
     width: 50%;
+    margin-top: 5%;
 }
 
 /* Media query para pantallas pequeñas */

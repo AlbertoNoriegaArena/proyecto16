@@ -1,18 +1,3 @@
-
-// solicitudes = [
-//     {
-//         "id": 1,
-//         "nombre": "Fernando",
-//         "apellido": "Alguno"
-//     },
-//     {
-//         "id": 2,
-//         "nombre": "Nico",
-//         "apellido": "Otro"
-//     }
-// ];
-
-
 $(function () {
 
     // Cargar los datos al cargar la página
