@@ -90,6 +90,7 @@ $(function () {
 
         //Boton guardar (POST)
         $("#botonGuardar").on('click', function () {
+            // Eliminar los espacios en blanco
             const nombre = $("#nombre").val().trim();
             const apellido = $("#apellido").val().trim();
 
@@ -121,27 +122,35 @@ $(function () {
             });
         });
 
+        // Hacer clic en una fila
         // Primero, asignamos un identificador al evento de clic en la fila
         $('#tabla tbody').on('click', 'tr', function (e) {
-            // Verificar si el clic no fue en un botón de borrar
+            // Comprobar si el clic no fue en un botón de borrar
             if (!$(e.target).hasClass('botonBorrar')) {
 
-                // Obtener el nombre y apellido de las celdas correspondientes
+                // Guardar el nombre y apellido de la fila que se ha hecho clic
+
+                // .eq(index) es similar a acceder a los elementos por su índice en un array 
                 const nombre = $(this).find('td').eq(0).text(); // La primera celda (nombre)
                 const apellido = $(this).find('td').eq(1).text(); // La segunda celda (apellido)
 
+                // En los inout ponemos el nombre y apellido
                 $("#nombreUpdate").val(nombre);
                 $("#apellidoUpdate").val(apellido);
 
+                // Mostrar la zona de detalle
                 $(".detalleUpdate").show();
+                // Ocultar el .detalle si está activo
                 $(".detalle").hide();
 
+                // Guardar el ID en un campo oculto 
                 $("#detalleId").val(id);
             }
         });
 
+        // Boton editar
         $('#botonEditar').on('click', function () {
-            // Obtener los valores del formulario
+            // Obtener los valores del formulario sin espacios en blanco
             const nombre = $("#nombreUpdate").val().trim();
             const apellido = $("#apellidoUpdate").val().trim();
             const id = $("#detalleId").val(); // Obtener el ID desde el campo oculto
@@ -149,7 +158,7 @@ $(function () {
             // Validar los campos
             if (nombre === "" || apellido === "") {
                 alert("Por favor, complete todos los campos.");
-                return;
+                return; //  evitar que el código continúe ejecutándose si los campos no han sido completados correctamente
             }
 
             // Crear el objeto con los datos actualizados
@@ -163,7 +172,6 @@ $(function () {
                 url: `https://my-json-server.typicode.com/desarrollo-seguro/dato/solicitudes/${id}`,
                 method: 'PUT',
                 data: JSON.stringify(data), // Convertir el objeto a JSON
-                contentType: 'application/json', // Asegurarse de enviar el contenido como JSON
                 success: function (response) {
                     alert('Registro actualizado con éxito');
                     // Recargar los datos y la tabla después de actualizar el registro
@@ -177,6 +185,7 @@ $(function () {
                 }
             });
         });
+
         // Boton borrar
         $('.botonBorrar').on('click', function () {
 
@@ -184,6 +193,7 @@ $(function () {
             const id = $(this).data('id');
             const url = `https://my-json-server.typicode.com/desarrollo-seguro/dato/solicitudes/${id}`;
 
+            // Ocultar detalle
             $(".detalle").hide();
             $(".detalleUpdate").hide();
 
