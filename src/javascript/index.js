@@ -46,7 +46,7 @@ $(function () {
                     <td>${persona.nombre}</td>
                     <td>${persona.apellido}</td>
                     <td>
-                        <button class="btn btn-danger botonBorrar p-2" data-id="${persona.id}">Borrar</button>
+                        <button class="btn btn-danger botonBorrar p-2" data-id="${persona.id}"> <i class="fa fa-trash"></i> <span> Borrar </span> </button>
                     </td>
                 </tr>`;
             $cuerpoTabla.append(fila);
