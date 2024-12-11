@@ -27,6 +27,13 @@ body {
     width: 50%;
 }
 
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .detalle, .detalleUpdate {
+        width: 100%;
+    }
+}
+
 /* Detalle*/
 
 .oculto {
