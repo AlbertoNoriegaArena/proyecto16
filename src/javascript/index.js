@@ -42,7 +42,7 @@ $(function () {
         // Recorrer las solicitudes y crear filas dinámicas
         solicitudes.forEach((persona) => {
             const fila = `
-                <tr>
+                <tr data-id="${persona.id}"> 
                     <td>${persona.nombre}</td>
                     <td>${persona.apellido}</td>
                     <td>
@@ -162,6 +162,9 @@ $(function () {
             // Obtener el ID desde el atributo data-id de la fila
             const id = $(this).data('id');
 
+            // Asegúrate de que el ID esté correcto
+        console.log("ID de la fila: ", id);  // Esto debería mostrar el ID correcto de la fila
+
             // Guardar el nombre y apellido de la fila que se ha hecho clic
             // .eq(index) es similar a acceder a los elementos por su índice en un array 
             const nombre = $(this).find('td').eq(0).text(); // La primera celda (nombre)
@@ -205,6 +208,7 @@ $(function () {
             url: `https://my-json-server.typicode.com/desarrollo-seguro/dato/solicitudes/${id}`,
             method: 'PUT',
             data: JSON.stringify(data), // Convertir el objeto a JSON
+            contentType: 'application/json',
             success: function (data) {
                 alert('Registro actualizado con éxito');
                 // Recargar los datos y la tabla después de actualizar el registro
