@@ -52,7 +52,10 @@ $(function () {
             $cuerpoTabla.append(fila);
         });
         // Boton borrar
-        $('.botonBorrar').on('click', function () {
+        $('.botonBorrar').on('click', function (e) {
+
+            // Detener la propagación del evento para que no se active el clic en la fila
+            e.stopPropagation();
 
             // Obtener el ID del recurso desde el atributo data-id del botón
             const id = $(this).data('id');
@@ -163,7 +166,7 @@ $(function () {
             const id = $(this).data('id');
 
             // Asegúrate de que el ID esté correcto
-        console.log("ID de la fila: ", id);  // Esto debería mostrar el ID correcto de la fila
+            console.log("ID de la fila: ", id);  // Esto debería mostrar el ID correcto de la fila
 
             // Guardar el nombre y apellido de la fila que se ha hecho clic
             // .eq(index) es similar a acceder a los elementos por su índice en un array 
